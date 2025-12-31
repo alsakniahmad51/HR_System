@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
+import 'package:hr/feature/departments/presentation/functions/add_new_department_dialog.dart';
 import 'package:hr/feature/departments/presentation/widgets/departments_app_bar.dart';
 import 'package:hr/feature/departments/presentation/widgets/departments_body.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -17,7 +18,9 @@ class DepartmentsPage extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(56.responsive(context)),
           ),
-          onPressed: () {},
+          onPressed: () {
+            addNewDepartmentDialog(context);
+          },
           child: PhosphorIcon(
             PhosphorIcons.plus(),
             color: AppColor.contentPrimaryInverted,

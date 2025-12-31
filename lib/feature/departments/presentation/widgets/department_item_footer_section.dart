@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
 import 'package:hr/core/widgets/custom_button.dart';
-import 'package:hr/feature/departments/presentation/functions/custom_alert_dialog.dart';
+import 'package:hr/feature/departments/presentation/functions/add_new_job_title_dialog.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class DepartmentsItemFooterSection extends StatelessWidget {
@@ -37,7 +37,7 @@ class DepartmentsItemFooterSection extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              customAlertDialog(context);
+              addNewJobTitleDialog(context);
             },
           ),
         ),

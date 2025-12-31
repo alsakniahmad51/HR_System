@@ -4,7 +4,7 @@ import 'package:hr/core/extention/responsive_size.dart';
 import 'package:hr/core/widgets/custom_button.dart';
 import 'package:hr/core/widgets/custom_text_feild.dart';
 
-Future<dynamic> customAlertDialog(BuildContext context) {
+Future<dynamic> addNewDepartmentDialog(BuildContext context) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -27,32 +27,12 @@ Future<dynamic> customAlertDialog(BuildContext context) {
         title: Row(
           children: [
             Text(
-              'Add New job title',
+              'Add New Department',
 
               style: TextStyle(
                 fontSize: 20.responsive(context),
 
                 fontWeight: FontWeight.w500,
-              ),
-            ),
-            Spacer(),
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 8.responsive(context),
-                vertical: 4.responsive(context),
-              ),
-              decoration: BoxDecoration(
-                color: Color(0xffF7F7F7),
-                borderRadius: BorderRadius.circular(8.responsive(context)),
-              ),
-              child: Text(
-                'Developers',
-
-                style: TextStyle(
-                  fontSize: 16.responsive(context),
-
-                  fontWeight: FontWeight.w500,
-                ),
               ),
             ),
           ],
@@ -63,7 +43,7 @@ Future<dynamic> customAlertDialog(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Job title name',
+              'Department name',
               style: TextStyle(
                 fontSize: 13.responsive(context),
                 fontWeight: FontWeight.w500,
@@ -71,7 +51,18 @@ Future<dynamic> customAlertDialog(BuildContext context) {
             ),
 
             SizedBox(height: 8.responsive(context)),
-            CustomTextFeild(hintText: 'title name'),
+            CustomTextFeild(hintText: 'Department name'),
+            SizedBox(height: 16.responsive(context)),
+            Text(
+              'Department Manager',
+              style: TextStyle(
+                fontSize: 13.responsive(context),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+
+            SizedBox(height: 8.responsive(context)),
+            CustomTextFeild(hintText: 'Department Manager'),
             SizedBox(height: 16.responsive(context)),
             Row(
               mainAxisSize: MainAxisSize.min,

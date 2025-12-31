@@ -29,7 +29,7 @@ class CustomTextFeild extends StatelessWidget {
           hintText,
           style: TextStyle(
             fontWeight: FontWeight.w400,
-            fontSize: 20.responsive(context),
+            fontSize: 16.responsive(context),
             color: const Color(0xffACACAC),
           ),
         ),
