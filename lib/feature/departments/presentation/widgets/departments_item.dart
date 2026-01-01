@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
+import 'package:hr/feature/departments/domain/model/departments_model.dart';
 import 'package:hr/feature/departments/presentation/widgets/custom_expansion_list_tile.dart';
 import 'package:hr/feature/departments/presentation/widgets/department_info.dart';
 import 'package:hr/feature/departments/presentation/widgets/department_item_footer_section.dart';
@@ -8,24 +9,29 @@ import 'package:hr/feature/departments/presentation/widgets/department_item_job_
 import 'package:hr/feature/departments/presentation/widgets/department_manager_info_row.dart';
 
 class DepartementItem extends StatelessWidget {
-  const DepartementItem({super.key});
-
+  const DepartementItem({super.key, required this.departmentsModel});
+  final DepartmentsModel departmentsModel;
   @override
   Widget build(BuildContext context) {
     return CustomExpansionTile(
       title: Text(
-        'Developers',
+        departmentsModel.departmentName,
         style: TextStyle(
           fontSize: 16.responsive(context),
           fontWeight: FontWeight.w500,
         ),
       ),
-      subtitle: DepartmetInfo(jobsCount: 5, usersCount: 10),
+      subtitle: DepartmetInfo(
+        jobsCount: departmentsModel.jobTitleCount,
+        usersCount: departmentsModel.employeesCount,
+      ),
       children: [
         SizedBox(height: 12.responsive(context)),
         Divider(height: 1, color: AppColor.borderTransparent, thickness: 1),
         SizedBox(height: 12.responsive(context)),
-        DepartmentManagerInfoRow(),
+        DepartmentManagerInfoRow(
+          managerName: departmentsModel.departmentManagerName,
+        ),
         Text(
           'Job titles',
           style: TextStyle(
@@ -36,7 +42,7 @@ class DepartementItem extends StatelessWidget {
         ),
         SizedBox(height: 8.responsive(context)),
 
-        DepartmentsItemJobTitleSection(),
+        DepartmentsItemJobTitleSection(jobTitle: departmentsModel.jobTitles),
         SizedBox(height: 12.responsive(context)),
         DepartmentsItemFooterSection(),
       ],

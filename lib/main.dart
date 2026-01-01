@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
+import 'package:hr/feature/departments/presentation/manager/department_cubit.dart';
 import 'package:hr/feature/departments/presentation/pages/departments_page.dart';
 import 'package:hr/feature/employess/presentation/pages/employees_page.dart';
 import 'package:hr/feature/my_account/presentation/pages/my_account_page.dart';
@@ -34,46 +36,49 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
   List<Widget> pages = [DepartmentsPage(), EmployeesPage(), MyAccountPage()];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          currentIndex: currentIndex,
-          onTap: (value) {
-            if (value != currentIndex) {
-              setState(() {
-                currentIndex = value;
-              });
-            }
-          },
-          iconSize: 24.responsive(context),
-          selectedLabelStyle: TextStyle(
-            fontSize: 12.responsive(context),
-            fontWeight: FontWeight.w500,
+    return BlocProvider(
+      create: (context) => DepartmentCubit(),
+      child: SafeArea(
+        child: Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            currentIndex: currentIndex,
+            onTap: (value) {
+              if (value != currentIndex) {
+                setState(() {
+                  currentIndex = value;
+                });
+              }
+            },
+            iconSize: 24.responsive(context),
+            selectedLabelStyle: TextStyle(
+              fontSize: 12.responsive(context),
+              fontWeight: FontWeight.w500,
+            ),
+            unselectedLabelStyle: TextStyle(
+              fontSize: 12.responsive(context),
+              fontWeight: FontWeight.w500,
+            ),
+            selectedItemColor: AppColor.contentBrandPrimary,
+            unselectedItemColor: AppColor.contentSecondary,
+            items: [
+              BottomNavigationBarItem(
+                label: 'Departments',
+                icon: PhosphorIcon(PhosphorIcons.treeView()),
+              ),
+              BottomNavigationBarItem(
+                label: 'Employees',
+                icon: PhosphorIcon(PhosphorIcons.users()),
+              ),
+              BottomNavigationBarItem(
+                label: 'My Account',
+                icon: PhosphorIcon(PhosphorIcons.user()),
+              ),
+            ],
           ),
-          unselectedLabelStyle: TextStyle(
-            fontSize: 12.responsive(context),
-            fontWeight: FontWeight.w500,
-          ),
-          selectedItemColor: AppColor.contentBrandPrimary,
-          unselectedItemColor: AppColor.contentSecondary,
-          items: [
-            BottomNavigationBarItem(
-              label: 'Departments',
-              icon: PhosphorIcon(PhosphorIcons.treeView()),
-            ),
-            BottomNavigationBarItem(
-              label: 'Employees',
-              icon: PhosphorIcon(PhosphorIcons.users()),
-            ),
-            BottomNavigationBarItem(
-              label: 'My Account',
-              icon: PhosphorIcon(PhosphorIcons.user()),
-            ),
-          ],
-        ),
 
-        body: pages[currentIndex],
+          body: pages[currentIndex],
+        ),
       ),
     );
   }

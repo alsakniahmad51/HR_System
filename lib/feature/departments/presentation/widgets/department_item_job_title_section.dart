@@ -5,14 +5,14 @@ import 'package:hr/core/widgets/custom_button.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class DepartmentsItemJobTitleSection extends StatelessWidget {
-  const DepartmentsItemJobTitleSection({super.key});
-
+  const DepartmentsItemJobTitleSection({super.key, required this.jobTitle});
+  final List<String> jobTitle;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 7,
+      itemCount: jobTitle.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 5.06,
         crossAxisCount: 2,
@@ -34,11 +34,16 @@ class DepartmentsItemJobTitleSection extends StatelessWidget {
               ),
               SizedBox(width: 4.responsive(context)),
 
-              Text(
-                'Back-end',
-                style: TextStyle(
-                  fontSize: 16.responsive(context),
-                  fontWeight: FontWeight.w600,
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    jobTitle[index],
+                    style: TextStyle(
+                      fontSize: 16.responsive(context),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ),
             ],
