@@ -4,12 +4,13 @@ import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
 import 'package:hr/feature/departments/presentation/manager/department_cubit.dart';
 import 'package:hr/feature/departments/presentation/pages/departments_page.dart';
+import 'package:hr/feature/employess/presentation/manager/employees_cubit.dart';
 import 'package:hr/feature/employess/presentation/pages/employees_page.dart';
 import 'package:hr/feature/my_account/presentation/pages/my_account_page.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(BlocProvider(create: (_) => EmployeesCubit(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
