@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
 import 'package:hr/core/widgets/custom_button.dart';
-import 'package:hr/feature/departments/presentation/functions/custom_alert_dialog.dart';
+import 'package:hr/feature/departments/domain/model/departments_model.dart';
+import 'package:hr/feature/departments/presentation/functions/add_new_job_title_dialog.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class DepartmentsItemFooterSection extends StatelessWidget {
-  const DepartmentsItemFooterSection({super.key});
-
+  const DepartmentsItemFooterSection({
+    super.key,
+    required this.departmentsModel,
+  });
+  final DepartmentsModel departmentsModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -37,25 +40,8 @@ class DepartmentsItemFooterSection extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              customAlertDialog(context);
+              addNewJobTitleDialog(context, departmentsModel);
             },
-          ),
-        ),
-        SizedBox(width: 12.responsive(context)),
-        Expanded(
-          child: CustomButton(
-            padding: EdgeInsets.symmetric(vertical: 8.responsive(context)),
-            color: AppColor.bgBandPrimary,
-            borderRadius: 8.responsive(context),
-            child: Text(
-              'View Employees',
-              style: TextStyle(
-                fontSize: 16.responsive(context),
-                fontWeight: FontWeight.w500,
-                color: AppColor.contentPrimaryInverted,
-              ),
-            ),
-            onPressed: () {},
           ),
         ),
       ],

@@ -2,17 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
 import 'package:hr/core/widgets/custom_button.dart';
+import 'package:hr/feature/departments/domain/model/departments_model.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class DepartmentsItemJobTitleSection extends StatelessWidget {
-  const DepartmentsItemJobTitleSection({super.key, required this.jobTitle});
-  final List<String> jobTitle;
+  const DepartmentsItemJobTitleSection({
+    super.key,
+    required this.departmentsModel,
+  });
+  final DepartmentsModel departmentsModel;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: jobTitle.length,
+      itemCount: departmentsModel.jobTitles.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 5.06,
         crossAxisCount: 2,
@@ -38,7 +42,7 @@ class DepartmentsItemJobTitleSection extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    jobTitle[index],
+                    departmentsModel.jobTitles[index],
                     style: TextStyle(
                       fontSize: 16.responsive(context),
                       fontWeight: FontWeight.w600,

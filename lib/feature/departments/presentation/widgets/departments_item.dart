@@ -42,9 +42,9 @@ class DepartementItem extends StatelessWidget {
         ),
         SizedBox(height: 8.responsive(context)),
 
-        DepartmentsItemJobTitleSection(jobTitle: departmentsModel.jobTitles),
+        DepartmentsItemJobTitleSection(departmentsModel: departmentsModel),
         SizedBox(height: 12.responsive(context)),
-        DepartmentsItemFooterSection(),
+        DepartmentsItemFooterSection(departmentsModel: departmentsModel),
       ],
     );
   }

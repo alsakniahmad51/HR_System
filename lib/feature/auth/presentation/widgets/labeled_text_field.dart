@@ -10,12 +10,16 @@ class LabeledTextField extends StatelessWidget {
     this.isRequired = false,
     this.obscureText = false,
     this.suffixIcon,
+    required this.controller,
+    this.validator,
   });
 
+  final TextEditingController controller;
   final String label;
   final bool isRequired;
   final bool obscureText;
   final Widget? suffixIcon;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +50,11 @@ class LabeledTextField extends StatelessWidget {
         ),
         SizedBox(height: 8.responsive(context)),
         CustomTextFeild(
+          controller: controller,
           hintText: '',
           obscureText: obscureText,
           suffixIcon: suffixIcon,
+          validator: validator,
         ),
       ],
     );

@@ -5,7 +5,14 @@ import 'package:hr/feature/auth/presentation/widgets/labeled_text_field.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key});
+  const PasswordTextField({
+    super.key,
+    required this.controller,
+    required this.validator,
+  });
+
+  final TextEditingController controller;
+  final String? Function(String?) validator;
 
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
@@ -17,9 +24,11 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return LabeledTextField(
+      controller: widget.controller,
       label: 'Password',
       isRequired: true,
       obscureText: _isHidden,
+      validator: widget.validator,
       suffixIcon: Material(
         color: Colors.transparent,
         child: InkWell(

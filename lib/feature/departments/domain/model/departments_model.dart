@@ -14,4 +14,15 @@ class DepartmentsModel {
     required this.jobTitles,
     required this.departmentManagerName,
   });
+
+  DepartmentsModel copyWith({List<String>? jobTitles, int? jobTitleCount}) {
+    return DepartmentsModel(
+      id: id,
+      departmentName: departmentName,
+      jobTitleCount: jobTitleCount ?? this.jobTitleCount,
+      employeesCount: employeesCount,
+      jobTitles: jobTitles ?? this.jobTitles,
+      departmentManagerName: departmentManagerName,
+    );
+  }
 }

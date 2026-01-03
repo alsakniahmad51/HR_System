@@ -8,16 +8,22 @@ class CustomTextFeild extends StatelessWidget {
     required this.hintText,
     this.obscureText = false,
     this.suffixIcon,
+    this.controller,
+    this.validator,
   });
 
   final String hintText;
   final bool obscureText;
   final Widget? suffixIcon;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       obscureText: obscureText,
+      validator: validator,
       style: TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 20.responsive(context),
@@ -25,13 +31,11 @@ class CustomTextFeild extends StatelessWidget {
       cursorColor: AppColor.contentBrandPrimary,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
-        hint: Text(
-          hintText,
-          style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 20.responsive(context),
-            color: const Color(0xffACACAC),
-          ),
+        hintText: hintText,
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 16.responsive(context),
+          color: const Color(0xffACACAC),
         ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: 16.responsive(context),
@@ -43,6 +47,14 @@ class CustomTextFeild extends StatelessWidget {
         focusedBorder: _buildOutlineInputBorder(
           context,
           color: AppColor.contentBrandPrimary,
+        ),
+        errorBorder: _buildOutlineInputBorder(
+          context,
+          color: AppColor.contentCritical,
+        ),
+        focusedErrorBorder: _buildOutlineInputBorder(
+          context,
+          color: AppColor.contentCritical,
         ),
       ),
     );
