@@ -8,22 +8,30 @@ class CustomTextFeild extends StatelessWidget {
     required this.hintText,
     this.obscureText = false,
     this.suffixIcon,
+    this.prefixIcon,
+    this.controller,
+    this.validator,
   });
 
   final String hintText;
   final bool obscureText;
   final Widget? suffixIcon;
-
+  final Widget? prefixIcon;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       obscureText: obscureText,
+      validator: validator,
       style: TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 20.responsive(context),
       ),
       cursorColor: AppColor.contentBrandPrimary,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hint: Text(
           hintText,
