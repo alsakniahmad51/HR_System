@@ -8,6 +8,7 @@ class CustomTextFeild extends StatelessWidget {
     required this.hintText,
     this.obscureText = false,
     this.suffixIcon,
+    this.prefixIcon,
     this.controller,
     this.validator,
   });
@@ -15,9 +16,9 @@ class CustomTextFeild extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -30,6 +31,7 @@ class CustomTextFeild extends StatelessWidget {
       ),
       cursorColor: AppColor.contentBrandPrimary,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: TextStyle(

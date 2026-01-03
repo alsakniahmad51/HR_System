@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hr/core/constants/app_assets.dart';
 import 'package:hr/core/constants/app_color.dart';
 import 'package:hr/core/extention/responsive_size.dart';
 
