@@ -14,6 +14,7 @@ class EmployeesPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         floatingActionButton: FloatingActionButton.small(
+          heroTag: null,
           backgroundColor: AppColor.bgBandPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(56.responsive(context)),

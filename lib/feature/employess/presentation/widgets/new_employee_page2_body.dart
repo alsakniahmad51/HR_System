@@ -7,6 +7,7 @@ import 'package:hr/feature/employess/data/entity/emp_entity.dart';
 import 'package:hr/feature/employess/presentation/manager/employees_cubit.dart';
 import 'package:hr/feature/employess/presentation/pages/employees_page.dart';
 import 'package:hr/feature/employess/presentation/widgets/label_text.dart';
+import 'package:hr/main.dart';
 
 class NewEmployeePage2Body extends StatefulWidget {
   const NewEmployeePage2Body({super.key, required this.employee});
@@ -33,7 +34,11 @@ class _NewEmployeePage2BodyState extends State<NewEmployeePage2Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Add New Employee")),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text("Add New Employee"),
+        backgroundColor: Colors.white,
+      ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 20.responsive(context),
@@ -72,7 +77,9 @@ class _NewEmployeePage2BodyState extends State<NewEmployeePage2Body> {
 
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => EmployeesPage()),
+                      MaterialPageRoute(
+                        builder: (context) => MainNavigationBar(),
+                      ),
                     );
                   }
                 },

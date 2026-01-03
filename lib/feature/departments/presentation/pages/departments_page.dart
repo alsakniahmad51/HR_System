@@ -27,6 +27,7 @@ class _DepartmentsPageState extends State<DepartmentsPage> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton.small(
+          heroTag: null,
           backgroundColor: AppColor.bgBandPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(56.responsive(context)),

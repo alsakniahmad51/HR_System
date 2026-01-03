@@ -11,7 +11,7 @@ import 'package:hr/feature/employess/presentation/pages/employees_page.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 void main() {
-  runApp(BlocProvider(create: (_) => EmployeesCubit(), child: const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => EmployeesCubit()),
         BlocProvider(create: (context) => DepartmentCubit()),
         BlocProvider(create: (context) => AuthCubit()),
       ],

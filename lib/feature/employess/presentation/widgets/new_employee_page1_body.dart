@@ -28,6 +28,7 @@ class _NewEmployeePageBodyState extends State<NewEmployeePageBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 20.responsive(context),
@@ -89,7 +90,10 @@ class _NewEmployeePageBodyState extends State<NewEmployeePageBody> {
           ),
         ),
       ),
-      appBar: AppBar(title: Text("Add New Employee")),
+      appBar: AppBar(
+        title: Text("Add New Employee"),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
